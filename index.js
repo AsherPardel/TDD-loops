@@ -12,6 +12,20 @@
  */
 export function echo(word, n) {
   // TODO
+  let phrase = word;
+  let phrase2 = phrase;
+  if (n > 1) {
+    for (let num = 0; num <= n; num++) {
+      phrase2 = phrase + word;
+    }
+    phrase2 = phrase2 + word;
+    return phrase2;
+  } else if (n === 1) {
+    return word;
+  } else {
+    phrase = ``;
+    return phrase;
+  }
 }
 
 /**
@@ -28,6 +42,23 @@ export function echo(word, n) {
  */
 export function echoWithSpace(word, n) {
   // TODO
+  let phrase = word;
+  let phrase2 = phrase;
+  if (word === "  " || word === "") {
+    phrase = "";
+    return phrase;
+  } else if (n > 1) {
+    for (let num = 0; num <= n; num++) {
+      phrase2 = phrase + " " + word;
+    }
+    phrase2 = phrase2 + " " + word;
+    return phrase2;
+  } else if (n === 1) {
+    return word;
+  } else {
+    phrase = ``;
+    return phrase;
+  }
 }
 
 /**
@@ -43,6 +74,17 @@ export function echoWithSpace(word, n) {
  */
 export function sumTo(n) {
   // TODO
+  let ans = 0;
+  if (n === 0 || n === 1) {
+    return n;
+  } else if (n < 0) {
+    return 0;
+  } else if (n > 1) {
+    for (let num = 0; num <= n; num++) {
+      ans = ans + num;
+    }
+    return ans;
+  }
 }
 
 /**
@@ -59,6 +101,22 @@ export function sumTo(n) {
  */
 export function sumFromTo(a, z) {
   // TODO
+  let ans = 0;
+  if (a === z) {
+    return a;
+  } else if (z < 0 || z < a) {
+    return 0;
+  } else if (a < 0) {
+    for (let num = a; num <= z; num++) {
+      ans = ans + num;
+    }
+    return ans;
+  } else if (z > a) {
+    for (let num = 0; num <= z; num++) {
+      ans = ans + num;
+    }
+    return ans;
+  }
 }
 
 /**
@@ -74,6 +132,9 @@ export function sumFromTo(a, z) {
  */
 export function countdown(n) {
   // TODO
+  for (let num = n; num >= 1; num--) {
+    console.log(num);
+  }
 }
 
 /**
@@ -89,6 +150,18 @@ export function countdown(n) {
  */
 export function sumOddsToN(n) {
   // TODO
+  let ans = 0;
+  for (let count = 1; count <= n; count++) {
+    if (n === 1) {
+      return n;
+    } else if (count % 2 === 0) {
+      count++;
+    } else {
+      ans = ans + count;
+      count++;
+    }
+  }
+  return ans;
 }
 
 /**
@@ -109,6 +182,18 @@ export function sumOddsToN(n) {
  */
 export function getGrowthTime(start, target) {
   // TODO
+  let minutes = 0;
+  if (start <= 0) {
+    return undefined;
+  } else if (start > target || start === target) {
+    return 0;
+  } else {
+    while (start < target) {
+      start = start * 2;
+      minutes = minutes + 20;
+    }
+  }
+  return minutes;
 }
 
 /**
@@ -129,6 +214,18 @@ export function getGrowthTime(start, target) {
  */
 export function getCompoundTime(start, rate, target) {
   // TODO
+  let years = 0;
+  if (start <= 0 || rate <= 0) {
+    return undefined;
+  } else if (start >= target) {
+    return 0;
+  } else {
+    while (start < target) {
+      start = start + start * rate;
+      years++;
+    }
+    return years;
+  }
 }
 
 /**
@@ -155,6 +252,29 @@ export function getCompoundTime(start, rate, target) {
  */
 export function moveWater(colander, bucket) {
   // TODO
+  if (bucket <= 0) {
+    return 0;
+  } else if (colander === 1) {
+    return bucket;
+  } else if (colander >= bucket) {
+    return 1;
+  } else if (colander <= 0) {
+    return undefined;
+  } else {
+    let trips = 0;
+    let container = 0;
+    let cups = colander;
+    while (cups > 1 && container < bucket) {
+      container = container + cups;
+      trips++;
+      cups--;
+    }
+    while (cups === 1 && container < bucket) {
+      container = container + cups;
+      trips++;
+    }
+    return trips;
+  }
 }
 
 /**
@@ -175,4 +295,15 @@ export function moveWater(colander, bucket) {
  */
 export function fizzbuzz(n) {
   // TODO
+  for (let num = 1; num <= n; num++) {
+    if (num % 5 === 0 && num % 3 === 0) {
+      console.log("fizzbuzz");
+    } else if (num % 3 === 0) {
+      console.log("fizz");
+    } else if (num % 5 === 0) {
+      console.log("buzz");
+    } else {
+      console.log(num);
+    }
+  }
 }
